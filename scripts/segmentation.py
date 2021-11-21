@@ -151,9 +151,9 @@ class Segmentation(object):
 
             # calculate Moran's I
             W = ps.queen_from_shapefile(shp_file)
-            I_HR90 = ps.Moran(df['Meanbright'].values, W)
+            moran = ps.Moran(df['Meanbright'].values, W)
 
-            hr_list.append((size, wt_var, I_HR90.I))
+            hr_list.append((size, wt_var, moran.I))
             os.remove(seg_Out)
             
             
